@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int, int> map = {};
+        for(int i=0; i<nums.size(); i++){
+            int comp = target - nums.at(i);
+            if(map.find(comp) != map.end()){
+                return {map[comp], i};
+            }
+            map.insert({nums.at(i), i});
+        }
+        return {-1, -1};
+    }
+};
